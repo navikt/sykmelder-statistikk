@@ -40,7 +40,7 @@ Installer dependencies, bygg appen, og start i produksjonsmodus.
 
 Prosjektet er vedlikeholdt av [teamsykmelding](CODEOWNERS)
 
-Spørsmål og/eller feature requests? Vennligst lag ein [issue](https://github.com/navikt/dinesykmeldte/issues)
+Spørsmål og/eller feature requests? Vennligst lag ein [issue](https://github.com/navikt/statistikk-sykmelder/issues)
 
 Dersom du jobber i [@navikt](https://github.com/navikt) kan du nå oss på slack
 kanalen [#team-sykmelding](https://nav-it.slack.com/archives/CMA3XV997)

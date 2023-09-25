@@ -1,29 +1,32 @@
+import 'next-logger'
 import './globals.css'
 
 import type { Metadata } from 'next'
 import { Decorator } from '@navikt/nav-dekoratoren-server-component'
-import { ReactElement, ReactNode } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 import { logger } from '@navikt/next-logger'
 
-import { getServerEnv } from '@/env'
+import { bundledEnv } from '../env'
+import Resolvers from '../components/Resolvers'
 
 export const metadata: Metadata = {
     title: 'Statistikk for sykmelder',
 }
 
-export default function RootLayout({ children }: { children: ReactNode }): ReactElement {
+export default async function RootLayout({ children }: { children: ReactNode }): Promise<ReactElement> {
     logger.info('Logging from root layout (server)')
 
     return (
         <html lang="en">
-            <Decorator decoratorProps={{ env: getDecoratorEnv() }}>{children}</Decorator>
+            <Resolvers>
+                <Decorator decoratorProps={{ env: getDecoratorEnv() }}>{children}</Decorator>
+            </Resolvers>
         </html>
     )
 }
 
 function getDecoratorEnv(): 'dev' | 'prod' {
-    const runtimeEnv = getServerEnv().runtimeEnv
-    switch (runtimeEnv) {
+    switch (bundledEnv.runtimeEnv) {
         case 'local':
         case 'test':
         case 'dev':
@@ -32,6 +35,6 @@ function getDecoratorEnv(): 'dev' | 'prod' {
         case 'prod':
             return 'prod'
         default:
-            throw new Error(`Unknown runtime environment: ${runtimeEnv}`)
+            throw new Error(`Unknown runtime environment: ${bundledEnv.runtimeEnv}`)
     }
 }

@@ -19,7 +19,6 @@
             }
         ],
         "paths": {
-            "@/*": ["./src/*"],
             "aksel-client": ["./src/aksel"],
             "aksel-server": ["./src/aksel-server"]
         }

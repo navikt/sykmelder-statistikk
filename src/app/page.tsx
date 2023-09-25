@@ -1,11 +1,16 @@
 import { ReactElement } from 'react'
 import { logger } from '@navikt/next-logger'
 
+import { verifyUserLoggedIn } from '../auth/authentication'
+
+import ClientComponent from './client-component'
+
 import { Button } from 'aksel-client'
 import { Heading } from 'aksel-server'
-import ClientComponent from '@/app/client-component'
 
-export default function Home(): ReactElement {
+export default async function Home(): Promise<ReactElement> {
+    await verifyUserLoggedIn('/')
+
     logger.info('Logging from page (server)')
 
     return (

@@ -8,6 +8,7 @@ export default function Home(): ReactElement {
         <main className="flex items-center justify-between p-24">
             <Heading size="xlarge">Statistikk for sykmelder</Heading>
             <Button>Does style work?</Button>
+            <div className="bg-bg-subtle p-">Tailwind test</div>
         </main>
     )
 }

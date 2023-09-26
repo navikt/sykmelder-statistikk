@@ -27,7 +27,7 @@ export const serverEnvSchema = z.object({
  *
  * They MUST be provided during the build step.
  */
-export const browserEnv = publicEnvSchema.parse({
+export const bundledEnv = publicEnvSchema.parse({
     publicPath: process.env.NEXT_PUBLIC_BASE_PATH,
     runtimeEnv: process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT,
 } satisfies Record<keyof PublicEnv, string | undefined>)
@@ -47,7 +47,7 @@ const getRawServerConfig = (): Partial<unknown> =>
  */
 export function getServerEnv(): ServerEnv & PublicEnv {
     try {
-        return { ...serverEnvSchema.parse(getRawServerConfig()), ...publicEnvSchema.parse(browserEnv) }
+        return { ...serverEnvSchema.parse(getRawServerConfig()), ...publicEnvSchema.parse(bundledEnv) }
     } catch (e) {
         if (e instanceof ZodError) {
             throw new Error(
@@ -64,4 +64,4 @@ export function getServerEnv(): ServerEnv & PublicEnv {
         }
     }
 }
-export const isLocalOrDemo = process.env.NODE_ENV !== 'production' || browserEnv.runtimeEnv === 'demo'
+export const isLocalOrDemo = process.env.NODE_ENV !== 'production' || bundledEnv.runtimeEnv === 'demo'

@@ -1,0 +1,47 @@
+apiVersion: 'nais.io/v1alpha1'
+kind: 'Application'
+metadata:
+  name: sykmelder-statistikk
+  namespace: teamsykmelding
+  labels:
+    team: teamsykmelding
+spec:
+  image: {{image}}
+  port: 3000
+  ingresses:
+    - 'https://www.nav.no/samarbeidspartner/sykmelder-statistikk'
+  liveness:
+    path: /samarbeidspartner/sykmelder-statistikk/api/internal/is_alive
+  readiness:
+    path: /samarbeidspartner/sykmelder-statistikk/api/internal/is_ready
+  startup:
+    path: /samarbeidspartner/sykmelder-statistikk/api/internal/is_ready
+    initialDelay: 20
+  filesFrom:
+    - emptyDir:
+        medium: Memory
+      mountPath: /app/.next/cache
+  idporten:
+    enabled: true
+    sidecar:
+      enabled: true
+      resources:
+        requests:
+          cpu: 100m
+  replicas:
+    min: 2
+    max: 4
+    cpuThresholdPercentage: 50
+  resources:
+    limits:
+      memory: 1536Mi
+    requests:
+      cpu: 400m
+      memory: 756Mi
+  tokenx:
+    enabled: true
+  accessPolicy:
+    outbound:
+      rules:
+        - application: nav-dekoratoren
+          namespace: personbruker

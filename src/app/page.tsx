@@ -1,12 +1,10 @@
-import { ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import { logger } from '@navikt/next-logger'
 
 import { verifyUserLoggedIn } from '../auth/authentication'
-
-import ClientComponent from './client-component'
-
-import { Button } from 'aksel-client'
-import { Heading } from 'aksel-server'
+import PageLayout from '../components/layout/page-layout'
+import RscBreadcrumber from '../components/decorator/rsc-breadcrumber'
+import { ExampleGraphRecharts } from '../components/graphs/example-graph-recharts'
 
 export default async function Home(): Promise<ReactElement> {
     await verifyUserLoggedIn('/')
@@ -14,12 +12,9 @@ export default async function Home(): Promise<ReactElement> {
     logger.info('Logging from page (server)')
 
     return (
-        <main className="flex items-center justify-between p-24">
-            <Heading size="xlarge">Statistikk for sykmelder</Heading>
-            <Button>Does style work?</Button>
-            <div className="bg-bg-subtle p-4">Tailwind test</div>
-            <div className="bg-bg-subtle p-8">Tailwind test 2</div>
-            <ClientComponent />
-        </main>
+        <PageLayout>
+            <RscBreadcrumber extraCrumbs={[]} />
+            <ExampleGraphRecharts />
+        </PageLayout>
     )
 }

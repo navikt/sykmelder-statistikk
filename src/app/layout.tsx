@@ -8,6 +8,7 @@ import { logger } from '@navikt/next-logger'
 
 import { bundledEnv } from '../env'
 import Resolvers from '../components/Resolvers'
+import AppHeader from '../components/header/app-header'
 
 export const metadata: Metadata = {
     title: 'Statistikk for sykmelder',
@@ -19,7 +20,25 @@ export default async function RootLayout({ children }: { children: ReactNode }):
     return (
         <html lang="en">
             <Resolvers>
-                <Decorator decoratorProps={{ env: getDecoratorEnv() }}>{children}</Decorator>
+                <Decorator
+                    decoratorProps={{
+                        env: getDecoratorEnv(),
+                        params: {
+                            context: 'samarbeidspartner',
+                            breadcrumbs: [
+                                {
+                                    title: 'Statistikk for sykmelder',
+                                    url: '/',
+                                },
+                            ],
+                        },
+                    }}
+                >
+                    <AppHeader />
+                    <main role="main" id="maincontent" tabIndex={-1}>
+                        {children}
+                    </main>
+                </Decorator>
             </Resolvers>
         </html>
     )
@@ -30,7 +49,7 @@ function getDecoratorEnv(): 'dev' | 'prod' {
         case 'local':
         case 'test':
         case 'dev':
-            return 'dev'
+            return 'prod'
         case 'demo':
         case 'prod':
             return 'prod'

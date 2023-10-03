@@ -7,7 +7,7 @@ import React, { ReactElement, ReactNode } from 'react'
 import { logger } from '@navikt/next-logger'
 import { DecoratorFetchProps } from '@navikt/nav-dekoratoren-moduler'
 
-import { bundledEnv } from '../env'
+import { bundledEnv, isLocalOrDemo } from '../env'
 import Resolvers from '../components/Resolvers'
 import AppHeader from '../components/header/app-header'
 
@@ -36,7 +36,7 @@ function getDecoratorProps(): DecoratorFetchProps {
     return {
         env: getDecoratorEnv(),
         params: {
-            simple: ['local', 'dev'].includes(bundledEnv.runtimeEnv),
+            simple: isLocalOrDemo,
             context: 'samarbeidspartner',
             breadcrumbs: [
                 {

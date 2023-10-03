@@ -1,26 +1,28 @@
 import * as R from 'remeda'
 import React, { ReactElement, Suspense } from 'react'
 
-import { getExampleData } from '../../data/getExampleData'
+import { getExampleData } from '../../../data/getExampleData'
 
-import RechartsLine from './RechartsLine'
+import { Controls } from './controls'
+import GraphView from './graph-view'
 
 import { Heading, Skeleton } from 'aksel-server'
 
-export async function ExampleGraphRecharts(): Promise<ReactElement> {
+export async function GraderteSykmeldingerEvolution(): Promise<ReactElement> {
     return (
         <div>
             <Heading size="medium" level="2" spacing>
                 Utvikling av andel graderte sykmeldinger
             </Heading>
+            <Controls />
             <Suspense fallback={<Skeleton height={340} variant="rectangle" />}>
-                <Chart />
+                <DataGraph />
             </Suspense>
         </div>
     )
 }
 
-async function Chart(): Promise<ReactElement> {
+async function DataGraph(): Promise<ReactElement> {
     const exampleData = await getExampleData()
     const rotatedData: {
         index: number
@@ -34,5 +36,5 @@ async function Chart(): Promise<ReactElement> {
         }))
     })
 
-    return <RechartsLine data={rotatedData} />
+    return <GraphView data={rotatedData} />
 }

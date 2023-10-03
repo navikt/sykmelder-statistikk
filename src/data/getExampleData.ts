@@ -16,6 +16,9 @@ const fakeLineData = [
 ]
 
 export async function getExampleData(): Promise<typeof fakeLineData> {
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    if (!process.env.CI) {
+        await new Promise((resolve) => setTimeout(resolve, 1000))
+    }
+
     return fakeLineData
 }

@@ -9,8 +9,12 @@ function Page(): ReactElement {
             <PageCrumbs
                 extraCrumbs={[
                     {
-                        title: 'Varighet på sykefraværstilfeller',
-                        url: '/sykefravaer/varighet',
+                        title: 'Diagnoser',
+                        url: '/diagnoser',
+                    },
+                    {
+                        title: 'Søk',
+                        url: '/diagnoser/sok',
                     },
                 ]}
             />

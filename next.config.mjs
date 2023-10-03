@@ -7,8 +7,9 @@ const nextConfig = {
     basePath: process.env.NEXT_PUBLIC_BASE_PATH,
     assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX,
     experimental: {
+        typedRoutes: true,
         serverComponentsExternalPackages: ['@navikt/next-logger', 'next-logger'],
-        optimizePackageImports: ['@navikt/aksel-icons', '@navikt/ds-react'],
+        optimizePackageImports: ['@navikt/aksel-icons', '@navikt/ds-react', 'recharts'],
     },
 }
 

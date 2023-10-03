@@ -9,8 +9,8 @@ function Page(): ReactElement {
             <PageCrumbs
                 extraCrumbs={[
                     {
-                        title: 'Varighet på sykefraværstilfeller',
-                        url: '/sykefravaer/varighet',
+                        title: 'Spredningsdiagram - Gradering av sykmeldinger',
+                        url: '/sykmelding/spredning',
                     },
                 ]}
             />

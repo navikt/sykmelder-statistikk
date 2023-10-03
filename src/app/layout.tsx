@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 import { Decorator } from '@navikt/nav-dekoratoren-server-component'
 import React, { ReactElement, ReactNode } from 'react'
 import { logger } from '@navikt/next-logger'
-import { DecoratorParams } from '@navikt/nav-dekoratoren-server-component/dist/common-types'
+import { DecoratorFetchProps } from '@navikt/nav-dekoratoren-moduler'
 
 import { bundledEnv } from '../env'
 import Resolvers from '../components/Resolvers'
@@ -21,7 +21,7 @@ export default async function RootLayout({ children }: { children: ReactNode }):
     return (
         <html lang="en">
             <Resolvers>
-                <Decorator decoratorProps={{ env: getDecoratorEnv(), params: decoratorParams }}>
+                <Decorator decoratorProps={getDecoratorProps()}>
                     <AppHeader />
                     <main role="main" id="maincontent" tabIndex={-1}>
                         {children}
@@ -32,14 +32,20 @@ export default async function RootLayout({ children }: { children: ReactNode }):
     )
 }
 
-const decoratorParams: DecoratorParams = {
-    context: 'samarbeidspartner',
-    breadcrumbs: [
-        {
-            title: 'Statistikk for sykmelder',
-            url: '/',
+function getDecoratorProps(): DecoratorFetchProps {
+    return {
+        env: getDecoratorEnv(),
+        params: {
+            simple: ['local', 'dev'].includes(bundledEnv.runtimeEnv),
+            context: 'samarbeidspartner',
+            breadcrumbs: [
+                {
+                    title: 'Statistikk for sykmelder',
+                    url: '/',
+                },
+            ],
         },
-    ],
+    }
 }
 
 function getDecoratorEnv(): 'dev' | 'prod' {

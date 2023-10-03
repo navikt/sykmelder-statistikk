@@ -3,7 +3,7 @@ import { logger } from '@navikt/next-logger'
 
 import { verifyUserLoggedIn } from '../auth/authentication'
 import PageLayout from '../components/layout/page-layout'
-import RscBreadcrumber from '../components/decorator/rsc-breadcrumber'
+import PageCrumbs from '../components/decorator/page-crumbs'
 import { ExampleGraphRecharts } from '../components/graphs/example-graph-recharts'
 
 export default async function Home(): Promise<ReactElement> {
@@ -13,7 +13,7 @@ export default async function Home(): Promise<ReactElement> {
 
     return (
         <PageLayout>
-            <RscBreadcrumber extraCrumbs={[]} />
+            <PageCrumbs extraCrumbs={[]} />
             <ExampleGraphRecharts />
         </PageLayout>
     )

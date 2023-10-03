@@ -1,19 +1,35 @@
 import React, { ReactElement } from 'react'
 import Link from 'next/link'
 
+import { ValidRoutes } from '../decorator/types'
+
 import { Heading, Link as AkselLink } from 'aksel-server'
-import { StethoscopeIcon } from 'aksel-client'
+import { Button, StethoscopeIcon } from 'aksel-client'
 
 function AppHeader(): ReactElement {
     return (
         <div className="w-full border-b-4 border-b-deepblue-400">
             <div className="container mx-auto p-8">
-                <Link href="/" className="text-text-default">
-                    <Heading size="xlarge" level="1" className="flex gap-4 items-center">
-                        <StethoscopeIcon />
-                        Statistikk for sykmelder
-                    </Heading>
-                </Link>
+                <div className="flex justify-between">
+                    <Button as={Link} variant="tertiary" href={'/' satisfies ValidRoutes} className="text-text-default">
+                        <Heading size="xlarge" level="1" className="flex gap-4 items-center hover:underline">
+                            <StethoscopeIcon />
+                            Statistikk for sykmelder
+                        </Heading>
+                    </Button>
+                    <div className="flex gap-4 justify-center items-center text-xl font-bold">
+                        <AkselLink
+                            as={Link}
+                            href={'/pasientdemografi' satisfies ValidRoutes}
+                            className="text-text-default"
+                        >
+                            Demografi
+                        </AkselLink>
+                        <AkselLink as={Link} href={'/om-losningen' satisfies ValidRoutes} className="text-text-default">
+                            Om løsningen
+                        </AkselLink>
+                    </div>
+                </div>
                 <div className="flex gap-8 my-2 ml-16">
                     <div>
                         <Heading level="2" size="small">
@@ -21,17 +37,17 @@ function AppHeader(): ReactElement {
                         </Heading>
                         <ul className="flex flex-col">
                             <li>
-                                <AkselLink as={Link} href="/sykefravaer/varighet">
+                                <AkselLink as={Link} href={'/sykefravaer/varighet' satisfies ValidRoutes}>
                                     Varighet på sykefraværstilfeller
                                 </AkselLink>
                             </li>
                             <li>
-                                <AkselLink as={Link} href="/sykefravaer/gradering">
+                                <AkselLink as={Link} href={'/sykefravaer/gradering' satisfies ValidRoutes}>
                                     Gradering av sykefraværstilfeller
                                 </AkselLink>
                             </li>
                             <li>
-                                <AkselLink as={Link} href="/sykefravaer/tilbakemelding">
+                                <AkselLink as={Link} href={'/sykefravaer/tilbakemelding' satisfies ValidRoutes}>
                                     Tilbakemelding til NAV og Arbeidsgiver
                                 </AkselLink>
                             </li>
@@ -43,17 +59,17 @@ function AppHeader(): ReactElement {
                         </Heading>
                         <ul className="flex flex-col">
                             <li>
-                                <AkselLink as={Link} href="/sykmelding/varighet">
+                                <AkselLink as={Link} href={'/sykmelding/varighet' satisfies ValidRoutes}>
                                     Varighet på sykmeldinger
                                 </AkselLink>
                             </li>
                             <li>
-                                <AkselLink as={Link} href="/sykmelding/gradering">
+                                <AkselLink as={Link} href={'/sykmelding/gradering' satisfies ValidRoutes}>
                                     Gradering av sykmeldinger
                                 </AkselLink>
                             </li>
                             <li>
-                                <AkselLink as={Link} href="/sykmelding/spredning">
+                                <AkselLink as={Link} href={'/sykmelding/spredning' satisfies ValidRoutes}>
                                     Spredningsdiagram - Gradering av sykmeldinger
                                 </AkselLink>
                             </li>
@@ -65,7 +81,7 @@ function AppHeader(): ReactElement {
                         </Heading>
                         <ul className="flex flex-col">
                             <li>
-                                <AkselLink as={Link} href="/diagnoser">
+                                <AkselLink as={Link} href={'/diagnoser' satisfies ValidRoutes}>
                                     Dine brukte sykmeldingsdiagnoser
                                 </AkselLink>
                             </li>
@@ -76,18 +92,5 @@ function AppHeader(): ReactElement {
         </div>
     )
 }
-
-/*
-    Sykefraværstilfeller
-        Varighet på sykefraværstilfeller
-        Gradering av sykefraværstilfeller
-        Tilbakemelding til NAV og Arbeidsgiver
-    Sykmeldinger
-        Varighet på sykmeldinger
-        Gradering av sykmeldinger
-        Spredningsdiagram - Gradering av sykmeldinger
-    Diagnoser med beslutningsstøtte
-        Dine brukte sykmeldingsdiagnoser
- */
 
 export default AppHeader

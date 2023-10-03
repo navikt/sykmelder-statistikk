@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 
-import PageLayout from '../../../components/layout/page-layout'
-import PageCrumbs from '../../../components/decorator/page-crumbs'
+import PageLayout from '../../components/layout/page-layout'
+import PageCrumbs from '../../components/decorator/page-crumbs'
 
 function Page(): ReactElement {
     return (
@@ -9,8 +9,8 @@ function Page(): ReactElement {
             <PageCrumbs
                 extraCrumbs={[
                     {
-                        title: 'Varighet på sykefraværstilfeller',
-                        url: '/sykefravaer/varighet',
+                        title: 'Pasientdemografi',
+                        url: '/pasientdemografi',
                     },
                 ]}
             />

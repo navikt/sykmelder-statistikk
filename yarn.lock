@@ -5507,10 +5507,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remeda@npm:^1.27.0":
-  version: 1.27.0
-  resolution: "remeda@npm:1.27.0"
-  checksum: 0298aba3ade1d5694bf5a8ca592c735f5ed17325d1f1ee8e4bfc5d80384de47cf6cc42093167f8c512dc4e453896f0ac59685598222328545d7c047c990120a4
+"remeda@npm:^1.27.1":
+  version: 1.27.1
+  resolution: "remeda@npm:1.27.1"
+  checksum: 4175a0b685ad40bb6b7d1b3ceccb5414573a5e289eb6447199e0417223cdf0c4402b839947185ba02651a8d3238a73e55e369ebbb83d793f51a72f0233adbee4
   languageName: node
   linkType: hard
 
@@ -6162,7 +6162,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     recharts: ^2.8.0
-    remeda: ^1.27.0
+    remeda: ^1.27.1
     tailwindcss: 3.3.3
     typescript: 5.2.2
   languageName: unknown

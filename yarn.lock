@@ -5503,9 +5503,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"recharts@npm:^2.9.0":
-  version: 2.9.0
-  resolution: "recharts@npm:2.9.0"
+"recharts@npm:^2.9.2":
+  version: 2.9.2
+  resolution: "recharts@npm:2.9.2"
   dependencies:
     classnames: ^2.2.5
     eventemitter3: ^4.0.1
@@ -5520,7 +5520,7 @@ __metadata:
     prop-types: ^15.6.0
     react: ^16.0.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: caca9c79907e0f256fa683d65d413e81995bc1f62b44f56ed01754a17f2e99fc8aeabf8b26f49f7512d4bfbdd4fa441a70f36ce7b98a25fba2d86463dd41bcbc
+  checksum: 77a87e3d91229ac5400240409568e3345ded50fc117e70e43e61a135b44bbc3164048704393aa988201ea2989278e1c4e96ce350f6a2f87044d1f0a48f290e84
   languageName: node
   linkType: hard
 
@@ -6219,7 +6219,7 @@ __metadata:
     prettier-plugin-tailwindcss: ^0.5.6
     react: 18.2.0
     react-dom: 18.2.0
-    recharts: ^2.9.0
+    recharts: ^2.9.2
     remeda: ^1.28.0
     tailwindcss: 3.3.5
     typescript: 5.2.2

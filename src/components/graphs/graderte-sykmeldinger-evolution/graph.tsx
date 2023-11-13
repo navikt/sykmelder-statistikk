@@ -1,12 +1,12 @@
 import * as R from 'remeda'
 import React, { ReactElement, Suspense } from 'react'
 
+import { Heading, Skeleton } from 'aksel-server'
+
 import { getExampleData } from '../../../data/getExampleData'
 
 import { Controls } from './controls'
 import GraphView from './graph-view'
-
-import { Heading, Skeleton } from 'aksel-server'
 
 export async function GraderteSykmeldingerEvolution(): Promise<ReactElement> {
     return (

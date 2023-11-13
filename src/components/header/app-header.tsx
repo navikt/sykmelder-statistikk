@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react'
 import Link from 'next/link'
 
-import { ValidRoutes } from '../decorator/types'
-
 import { Heading, Link as AkselLink } from 'aksel-server'
 import { Button, StethoscopeIcon } from 'aksel-client'
+
+import { ValidRoutes } from '../decorator/types'
 
 function AppHeader(): ReactElement {
     return (

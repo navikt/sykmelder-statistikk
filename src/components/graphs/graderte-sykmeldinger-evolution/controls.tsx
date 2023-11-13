@@ -3,9 +3,9 @@
 import { ReactElement } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 
-import { createUrl } from '../../../utils/url'
-
 import { LineGraphStackedIcon, TableIcon, ToggleGroup } from 'aksel-client'
+
+import { createUrl } from '../../../utils/url'
 
 export function Controls(): ReactElement {
     const router = useRouter()

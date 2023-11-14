@@ -15,6 +15,7 @@
         "postinstall": "node ./scripts/postinstall.js"
     },
     "dependencies": {
+        "@google-cloud/cloud-sql-connector": "^1.1.0",
         "@navikt/aksel-icons": "^5.10.1",
         "@navikt/ds-css": "^5.10.1",
         "@navikt/ds-react": "^5.10.1",
@@ -28,6 +29,8 @@
         "jsdom": "^22.1.0",
         "next": "14.0.2",
         "next-logger": "^3.0.2",
+        "nextleton": "^0.6.1",
+        "pg": "^8.11.3",
         "pino": "^8.16.1",
         "react": "18.2.0",
         "react-dom": "18.2.0",
@@ -38,6 +41,7 @@
         "@navikt/eslint-config-teamsykmelding": "^5.0.0",
         "@next/bundle-analyzer": "^14.0.2",
         "@types/node": "20.9.0",
+        "@types/pg": "^8",
         "@types/react": "18.2.37",
         "@types/react-dom": "18.2.15",
         "autoprefixer": "10.4.16",

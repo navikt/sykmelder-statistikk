@@ -3,9 +3,28 @@ import { Connector, IpAddressTypes } from '@google-cloud/cloud-sql-connector'
 import { lazyNextleton } from 'nextleton'
 import { logger } from '@navikt/next-logger'
 
-import { getServerEnv } from '../env'
+import { bundledEnv, getServerEnv } from '../env'
 
-export const pgPool = lazyNextleton('db', async () => {
+import { devDatabase, seedTestDatabase } from './dev-db'
+
+export const dbClient = lazyNextleton('db-2', async () => {
+    const pool = await getPool()
+    const client = await pool.connect()
+    logger.info(`Connected to database`)
+
+    if (bundledEnv.runtimeEnv === 'local') {
+        logger.info('Seeding database')
+        await seedTestDatabase(client)
+    }
+
+    return client
+})
+
+async function getPool(): Promise<Pool> {
+    return bundledEnv.runtimeEnv === 'local' ? getTestcontainersPool() : getProductionPool()
+}
+
+async function getProductionPool(): Promise<Pool> {
     const config = getServerEnv()
 
     const connector = new Connector()
@@ -21,17 +40,23 @@ export const pgPool = lazyNextleton('db', async () => {
         database: 'statistikk',
         max: 5,
     })
-
-    await pool.connect()
-
     return pool
-})
+}
+
+async function getTestcontainersPool(): Promise<Pool> {
+    const container = await devDatabase()
+
+    return new Pool({
+        connectionString: container.getConnectionUri(),
+        max: 5,
+    })
+}
 
 export async function testDb(): Promise<void> {
     const t1 = performance.now()
-    const pool = await pgPool()
+    const pool = await dbClient()
     const t2 = performance.now()
-    logger.info(`Time to connect to db (already connected) ${t2 - t1}`)
+    logger.info(`Time to connect to db ${t2 - t1}`)
 
     const t3 = performance.now()
     const { rows } = await pool.query('SELECT * FROM test_table;')

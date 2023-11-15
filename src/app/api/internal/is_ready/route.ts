@@ -2,16 +2,28 @@ import { NextResponse } from 'next/server'
 import { logger } from '@navikt/next-logger'
 
 import { getServerEnv } from '../../../../env'
-import { pgPool } from '../../../../db/pg'
+import { dbClient } from '../../../../db/pg'
+import { devDatabase } from '../../../../db/dev-db'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(): Promise<NextResponse> {
+    let serverEnv
     try {
-        getServerEnv()
+        serverEnv = getServerEnv()
     } catch (e) {
         logger.error(new Error('Misconfigured environment variables :(', { cause: e }))
         return NextResponse.json({ message: 'Misconfigured environment variables :(' }, { status: 500 })
+    }
+
+    try {
+        // Start testcontainers postgresql
+        if (serverEnv.runtimeEnv === 'local') {
+            await devDatabase()
+        }
+    } catch (e) {
+        logger.error(new Error(`Unable to start dev database :'(`, { cause: e }))
+        return NextResponse.json({ message: `Unable to start dev database :'(` }, { status: 500 })
     }
 
     try {
@@ -22,7 +34,7 @@ export async function GET(): Promise<NextResponse> {
             // TODO: REMEMBER TO CONFIGURE EGRESS IP IN nais/network-policy-prod.yml
             getServerEnv().runtimeEnv !== 'prod'
         ) {
-            await pgPool()
+            await dbClient()
         }
     } catch (e) {
         logger.error(new Error('Unable to connect pool to database :(', { cause: e }))

@@ -16,7 +16,12 @@ export async function GET(): Promise<NextResponse> {
 
     try {
         // No DB in demo
-        if (getServerEnv().runtimeEnv !== 'demo') {
+        if (
+            getServerEnv().runtimeEnv !== 'demo' &&
+            // TODO: Temporarily don't connect to DB in production until backend is ready
+            // TODO: REMEMBER TO CONFIGURE EGRESS IP IN nais/network-policy-prod.yml
+            getServerEnv().runtimeEnv !== 'prod'
+        ) {
             await pgPool()
         }
     } catch (e) {

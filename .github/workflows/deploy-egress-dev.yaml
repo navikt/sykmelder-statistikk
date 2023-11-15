@@ -1,0 +1,20 @@
+name: Deploy egress to dev
+
+on:
+  push:
+    paths:
+      - .github/workflows/deploy-egress-dev.yaml
+
+jobs:
+  deploy-egress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLUSTER: dev-gcp
+          TEAM: teamsykmelding
+          RESOURCE: nais/network-policy-dev.yaml
+          PRINT_PAYLOAD: true

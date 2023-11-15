@@ -3,7 +3,7 @@ import { logger } from '@navikt/next-logger'
 
 import { getServerEnv } from '../../../../env'
 import { dbClient } from '../../../../db/pg'
-import { devDatabase } from '../../../../db/dev-db'
+import { devDatabase } from '../../../../db/dev/dev-db'
 
 export const dynamic = 'force-dynamic'
 

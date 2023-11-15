@@ -5,9 +5,10 @@ import { logger } from '@navikt/next-logger'
 
 import { bundledEnv, getServerEnv } from '../env'
 
-import { devDatabase, seedTestDatabase } from './dev-db'
+import { devDatabase } from './dev/dev-db'
+import { seedTestDatabase } from './dev/seed'
 
-export const dbClient = lazyNextleton('db-2', async () => {
+export const dbClient = lazyNextleton('db', async () => {
     const pool = await getPool()
     const client = await pool.connect()
     logger.info(`Connected to database`)

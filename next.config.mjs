@@ -8,7 +8,7 @@ const nextConfig = {
     assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX,
     experimental: {
         typedRoutes: true,
-        serverComponentsExternalPackages: ['@navikt/next-logger', 'next-logger'],
+        serverComponentsExternalPackages: ['@navikt/next-logger', 'next-logger', '@testcontainers/postgresql'],
         optimizePackageImports: ['@navikt/aksel-icons', '@navikt/ds-react', 'recharts'],
     },
 }

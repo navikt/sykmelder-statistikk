@@ -22,6 +22,5 @@ export async function seedTestDatabase(client: PoolClient): Promise<void> {
         VALUES ('2','test 2');
         INSERT INTO test_table (id, text)
         VALUES ('3','test 3');
-
     `)
 }

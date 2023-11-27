@@ -19,13 +19,19 @@ function AppHeader(): ReactElement {
                     </Button>
                     <div className="flex gap-4 justify-center items-center text-xl font-bold">
                         <AkselLink
+                            prefetch={false}
                             as={Link}
                             href={'/pasientdemografi' satisfies ValidRoutes}
                             className="text-text-default"
                         >
                             Demografi
                         </AkselLink>
-                        <AkselLink as={Link} href={'/om-losningen' satisfies ValidRoutes} className="text-text-default">
+                        <AkselLink
+                            prefetch={false}
+                            as={Link}
+                            href={'/om-losningen' satisfies ValidRoutes}
+                            className="text-text-default"
+                        >
                             Om løsningen
                         </AkselLink>
                     </div>
@@ -37,17 +43,29 @@ function AppHeader(): ReactElement {
                         </Heading>
                         <ul className="flex flex-col">
                             <li>
-                                <AkselLink as={Link} href={'/sykefravaer/varighet' satisfies ValidRoutes}>
+                                <AkselLink
+                                    prefetch={false}
+                                    as={Link}
+                                    href={'/sykefravaer/varighet' satisfies ValidRoutes}
+                                >
                                     Varighet på sykefraværstilfeller
                                 </AkselLink>
                             </li>
                             <li>
-                                <AkselLink as={Link} href={'/sykefravaer/gradering' satisfies ValidRoutes}>
+                                <AkselLink
+                                    prefetch={false}
+                                    as={Link}
+                                    href={'/sykefravaer/gradering' satisfies ValidRoutes}
+                                >
                                     Gradering av sykefraværstilfeller
                                 </AkselLink>
                             </li>
                             <li>
-                                <AkselLink as={Link} href={'/sykefravaer/tilbakemelding' satisfies ValidRoutes}>
+                                <AkselLink
+                                    prefetch={false}
+                                    as={Link}
+                                    href={'/sykefravaer/tilbakemelding' satisfies ValidRoutes}
+                                >
                                     Tilbakemelding til NAV og Arbeidsgiver
                                 </AkselLink>
                             </li>
@@ -59,17 +77,29 @@ function AppHeader(): ReactElement {
                         </Heading>
                         <ul className="flex flex-col">
                             <li>
-                                <AkselLink as={Link} href={'/sykmelding/varighet' satisfies ValidRoutes}>
+                                <AkselLink
+                                    prefetch={false}
+                                    as={Link}
+                                    href={'/sykmelding/varighet' satisfies ValidRoutes}
+                                >
                                     Varighet på sykmeldinger
                                 </AkselLink>
                             </li>
                             <li>
-                                <AkselLink as={Link} href={'/sykmelding/gradering' satisfies ValidRoutes}>
+                                <AkselLink
+                                    prefetch={false}
+                                    as={Link}
+                                    href={'/sykmelding/gradering' satisfies ValidRoutes}
+                                >
                                     Gradering av sykmeldinger
                                 </AkselLink>
                             </li>
                             <li>
-                                <AkselLink as={Link} href={'/sykmelding/spredning' satisfies ValidRoutes}>
+                                <AkselLink
+                                    prefetch={false}
+                                    as={Link}
+                                    href={'/sykmelding/spredning' satisfies ValidRoutes}
+                                >
                                     Spredningsdiagram - Gradering av sykmeldinger
                                 </AkselLink>
                             </li>
@@ -81,7 +111,7 @@ function AppHeader(): ReactElement {
                         </Heading>
                         <ul className="flex flex-col">
                             <li>
-                                <AkselLink as={Link} href={'/diagnoser' satisfies ValidRoutes}>
+                                <AkselLink prefetch={false} as={Link} href={'/diagnoser' satisfies ValidRoutes}>
                                     Dine brukte sykmeldingsdiagnoser
                                 </AkselLink>
                             </li>

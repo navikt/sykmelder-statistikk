@@ -340,19 +340,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@navikt/nav-dekoratoren-server-component@npm:^0.1.7":
-  version: 0.1.7
-  resolution: "@navikt/nav-dekoratoren-server-component@npm:0.1.7::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fnav-dekoratoren-server-component%2F0.1.7%2F8344472827f7b7744b33e0ca6b64d65657e79d12"
-  dependencies:
-    html-react-parser: "npm:^4.2.1"
-    node-cache: "npm:^5.1.2"
-  peerDependencies:
-    jsdom: 22
-    next: 12 || 13
-  checksum: baf004e8b835fe8c14d05b446c03438f87dad22e1216f5124af3014c91641acb36708b6cef42f3484d4eb37ce52e22e438cd933ad468526617056135c81db2f5
-  languageName: node
-  linkType: hard
-
 "@navikt/next-auth-wonderwall@npm:^1.5.0":
   version: 1.5.0
   resolution: "@navikt/next-auth-wonderwall@npm:1.5.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40navikt%2Fnext-auth-wonderwall%2F1.5.0%2F643addd5bb139ccf885908e0e27c5cb7b4a6a44d"
@@ -2496,7 +2483,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"domutils@npm:^3.0.1, domutils@npm:^3.1.0":
+"domutils@npm:^3.0.1":
   version: 3.1.0
   resolution: "domutils@npm:3.1.0"
   dependencies:
@@ -2579,7 +2566,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"entities@npm:^4.2.0, entities@npm:^4.4.0, entities@npm:^4.5.0":
+"entities@npm:^4.2.0, entities@npm:^4.4.0":
   version: 4.5.0
   resolution: "entities@npm:4.5.0"
   checksum: ede2a35c9bce1aeccd055a1b445d41c75a14a2bb1cd22e242f20cf04d236cdcd7f9c859eb83f76885327bfae0c25bf03303665ee1ce3d47c5927b98b0e3e3d48
@@ -3739,16 +3726,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-dom-parser@npm:5.0.3":
-  version: 5.0.3
-  resolution: "html-dom-parser@npm:5.0.3"
-  dependencies:
-    domhandler: "npm:5.0.3"
-    htmlparser2: "npm:9.0.0"
-  checksum: 115b2db3782aeefff02ae04e5b18be5955e8490797e38863db34fd92fcc6acba57a0791d3b9e8ca71c64aa0fbeb66feb45cec106d492e5416c6aaa5b3aa72af6
-  languageName: node
-  linkType: hard
-
 "html-encoding-sniffer@npm:^3.0.0":
   version: 3.0.0
   resolution: "html-encoding-sniffer@npm:3.0.0"
@@ -3772,20 +3749,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-react-parser@npm:^4.2.1":
-  version: 4.2.10
-  resolution: "html-react-parser@npm:4.2.10"
-  dependencies:
-    domhandler: "npm:5.0.3"
-    html-dom-parser: "npm:5.0.3"
-    react-property: "npm:2.0.2"
-    style-to-js: "npm:1.1.8"
-  peerDependencies:
-    react: 0.14 || 15 || 16 || 17 || 18
-  checksum: b8c4dc1de897143bfb4c548efa9526ce001b54087afe363e4edacca559d785cdd2ddcb314f3e1633cf23e14eb6820e1bbcecc34607d9e3ad8e16255337f524d7
-  languageName: node
-  linkType: hard
-
 "htmlparser2@npm:8.0.2":
   version: 8.0.2
   resolution: "htmlparser2@npm:8.0.2"
@@ -3795,18 +3758,6 @@ __metadata:
     domutils: "npm:^3.0.1"
     entities: "npm:^4.4.0"
   checksum: ea5512956eee06f5835add68b4291d313c745e8407efa63848f4b8a90a2dee45f498a698bca8614e436f1ee0cfdd609938b71d67c693794545982b76e53e6f11
-  languageName: node
-  linkType: hard
-
-"htmlparser2@npm:9.0.0":
-  version: 9.0.0
-  resolution: "htmlparser2@npm:9.0.0"
-  dependencies:
-    domelementtype: "npm:^2.3.0"
-    domhandler: "npm:^5.0.3"
-    domutils: "npm:^3.1.0"
-    entities: "npm:^4.5.0"
-  checksum: 6b0132fee4da2f6565dfb9166917992bf67bd7827a00a4baa35e2eea8db488b3a1dfea2a597cf3a743521d5276ecd39fb297ce0e8698af6d14c8f02a5fe08e90
   languageName: node
   linkType: hard
 
@@ -3956,13 +3907,6 @@ __metadata:
   version: 0.1.1
   resolution: "inline-style-parser@npm:0.1.1"
   checksum: e661f4fb6824a41076c4d23358e8b581fd3410fbfb9baea4cb542a85448b487691c3b9bbb58ad73a95613041ca616f059595f19cadd0c22476a1fffa79842b48
-  languageName: node
-  linkType: hard
-
-"inline-style-parser@npm:0.2.2":
-  version: 0.2.2
-  resolution: "inline-style-parser@npm:0.2.2"
-  checksum: 352b1b9a691113033fc72e67b906244713551dc497d7e12791034668fe7d9e4c9e74eb8c251183d6225d3a263d0bcea911b9ca6281dec0413f6e2465ee8fbc2e
   languageName: node
   linkType: hard
 
@@ -6078,13 +6022,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-property@npm:2.0.2":
-  version: 2.0.2
-  resolution: "react-property@npm:2.0.2"
-  checksum: 3a4bc1951b2b7992cb8a2d3f12016dd0920d1c06eb58b456204a6ae1210401d62baece098d3200ed8a0513dde247a5d96ffdb24f354e32ce5a9b26fbd8552668
-  languageName: node
-  linkType: hard
-
 "react-smooth@npm:^2.0.5":
   version: 2.0.5
   resolution: "react-smooth@npm:2.0.5"
@@ -6855,30 +6792,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"style-to-js@npm:1.1.8":
-  version: 1.1.8
-  resolution: "style-to-js@npm:1.1.8"
-  dependencies:
-    style-to-object: "npm:1.0.3"
-  checksum: ca2da7594de300b6489ba36917b7958c9663e50aeffa9d1428b197a9ea8e6f9a4991fe3e0748e6c0c1afe5aa8b71e807810ad752ce14d3c8d69ac7a630337b1f
-  languageName: node
-  linkType: hard
-
 "style-to-object@npm:0.4.1":
   version: 0.4.1
   resolution: "style-to-object@npm:0.4.1"
   dependencies:
     inline-style-parser: "npm:0.1.1"
   checksum: aa597acebfa44b8468d486385fc63007d49cb1da2b2ffe5d54021bccf2d47e2f5d18ff499dcb8f028087fc1a4ac86556bebf768ac91137d43ecbb47b8470410a
-  languageName: node
-  linkType: hard
-
-"style-to-object@npm:1.0.3":
-  version: 1.0.3
-  resolution: "style-to-object@npm:1.0.3"
-  dependencies:
-    inline-style-parser: "npm:0.2.2"
-  checksum: 249e329a5ecba2bed291a145bc1d560765cf4eedb8e163fe571848c8d040d1a7d51796eba7722083e1a5deaa198f2f9c6202b20dba13828918018fd500ec5c27
   languageName: node
   linkType: hard
 
@@ -6953,7 +6872,6 @@ __metadata:
     "@navikt/ds-tokens": "npm:^5.11.2"
     "@navikt/eslint-config-teamsykmelding": "npm:^5.0.0"
     "@navikt/nav-dekoratoren-moduler": "npm:^2.1.4"
-    "@navikt/nav-dekoratoren-server-component": "npm:^0.1.7"
     "@navikt/next-auth-wonderwall": "npm:^1.5.0"
     "@navikt/next-logger": "npm:^1.21.0"
     "@next/bundle-analyzer": "npm:^14.0.3"

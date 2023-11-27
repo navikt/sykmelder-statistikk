@@ -45,5 +45,8 @@ spec:
       rules:
         - application: nav-dekoratoren
           namespace: personbruker
+  env:
+    - name: SYKMELDER_STATISTIKK_DB_INSTANCE
+      value: teamsykmelding-dev-1d34:europe-north1:sykmelder-statistikk
   envFrom:
     - secret: google-sql-sykmelder-statistikk-kafka-statistikk-sykme-fc9e33bd

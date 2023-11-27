@@ -30,7 +30,7 @@ async function getProductionPool(): Promise<Pool> {
 
     const connector = new Connector()
     const clientOpts = await connector.getOptions({
-        instanceConnectionName: 'teamsykmelding-dev-1d34:europe-north1:sykmelder-statistikk',
+        instanceConnectionName: config.SYKMELDER_STATISTIKK_DB_INSTANCE,
         ipType: IpAddressTypes.PUBLIC,
     })
 

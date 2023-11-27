@@ -20,6 +20,7 @@ export const serverEnvSchema = z.object({
     TOKEN_X_WELL_KNOWN_URL: z.string(),
     TOKEN_X_PRIVATE_JWK: z.string(),
     TOKEN_X_CLIENT_ID: z.string(),
+    SYKMELDER_STATISTIKK_DB_INSTANCE: z.string(),
     // Database stuff provided by nais
     DB_SYKMELDER_STATISTIKK_NEXT_USERNAME: z.string(),
     DB_SYKMELDER_STATISTIKK_NEXT_PASSWORD: z.string(),
@@ -43,6 +44,7 @@ const getRawServerConfig = (): Partial<unknown> =>
         TOKEN_X_WELL_KNOWN_URL: process.env.TOKEN_X_WELL_KNOWN_URL,
         IDPORTEN_CLIENT_ID: process.env.IDPORTEN_CLIENT_ID,
         IDPORTEN_WELL_KNOWN_URL: process.env.IDPORTEN_WELL_KNOWN_URL,
+        SYKMELDER_STATISTIKK_DB_INSTANCE: process.env.SYKMELDER_STATISTIKK_DB_INSTANCE,
         // Database stuff provided by nais
         DB_SYKMELDER_STATISTIKK_NEXT_USERNAME: process.env.DB_SYKMELDER_STATISTIKK_NEXT_USERNAME,
         DB_SYKMELDER_STATISTIKK_NEXT_PASSWORD: process.env.DB_SYKMELDER_STATISTIKK_NEXT_PASSWORD,

@@ -30,7 +30,7 @@ spec:
           cpu: 100m
   replicas:
     min: 2
-    max: 4
+    max: 2
     cpuThresholdPercentage: 50
   resources:
     limits:
@@ -40,8 +40,19 @@ spec:
       memory: 756Mi
   tokenx:
     enabled: true
+  gcp:
+    permissions:
+      - resource:
+          apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
+          kind: Project
+        role: roles/cloudsql.client
   accessPolicy:
     outbound:
       rules:
         - application: nav-dekoratoren
           namespace: personbruker
+  env:
+    - name: SYKMELDER_STATISTIKK_DB_INSTANCE
+      value: teamsykmelding-prod-2acd:europe-north1:sykmelder-statistikk
+  envFrom:
+    - secret: google-sql-sykmelder-statistikk-kafka-statistikk-sykme-fc9e33bd

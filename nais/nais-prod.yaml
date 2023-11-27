@@ -51,6 +51,8 @@ spec:
       rules:
         - application: nav-dekoratoren
           namespace: personbruker
+        - application: decorator-next
+          namespace: personbruker
   env:
     - name: SYKMELDER_STATISTIKK_DB_INSTANCE
       value: teamsykmelding-prod-2acd:europe-north1:sykmelder-statistikk

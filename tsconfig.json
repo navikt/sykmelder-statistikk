@@ -18,9 +18,11 @@
                 "name": "next"
             }
         ],
+        "baseUrl": "src",
         "paths": {
-            "aksel-client": ["./src/aksel"],
-            "aksel-server": ["./src/aksel-server"]
+            "aksel-client": ["aksel.ts"],
+            "aksel-server": ["aksel-server.ts"],
+            "utils": ["utils/*"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

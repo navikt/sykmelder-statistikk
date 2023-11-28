@@ -11,6 +11,11 @@ const nextConfig = {
         serverComponentsExternalPackages: ['@navikt/next-logger', 'next-logger', '@testcontainers/postgresql'],
         optimizePackageImports: ['@navikt/aksel-icons', '@navikt/ds-react', 'recharts'],
     },
+    logging: {
+        fetches: {
+            fullUrl: true,
+        },
+    },
 }
 
 export default bundleAnalyzer({

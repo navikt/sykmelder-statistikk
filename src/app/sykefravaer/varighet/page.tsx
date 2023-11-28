@@ -1,9 +1,11 @@
 import React, { ReactElement } from 'react'
+import { sub } from 'date-fns'
 
 import PageLayout from '../../../components/layout/page-layout'
 import PageCrumbs from '../../../components/decorator/page-crumbs'
 import { verifyUserLoggedIn } from '../../../auth/authentication'
 import MonthYearPicker from '../../../components/filters/MonthYearPicker'
+import QuarterPicker from '../../../components/filters/QuarterPicker'
 
 const pagePath = '/sykefravaer/varighet'
 
@@ -13,7 +15,19 @@ async function Page(): Promise<ReactElement> {
     return (
         <PageLayout>
             <PageCrumbs extraCrumbs={[{ title: 'Varighet på sykefraværstilfeller', url: pagePath }]} />
-            <MonthYearPicker />
+            <div className="flex gap-4">
+                <MonthYearPicker fromDate={new Date('1 Oct 2020')} toDate={sub(new Date(), { months: 1 })} />
+                <QuarterPicker
+                    fromQuarter={{
+                        year: 2020,
+                        quarter: 2,
+                    }}
+                    toQuarter={{
+                        year: 2023,
+                        quarter: 3,
+                    }}
+                />
+            </div>
             TODO this route
         </PageLayout>
     )

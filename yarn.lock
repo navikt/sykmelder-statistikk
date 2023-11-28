@@ -56,6 +56,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.23.1":
+  version: 7.23.4
+  resolution: "@babel/runtime@npm:7.23.4"
+  dependencies:
+    regenerator-runtime: "npm:^0.14.0"
+  checksum: 6ef4f6dcc4ec4d74cb9f6c26a26e92d016b36debd167be48cae293fbd990b3157fb1d8d21c531285da15a5bda9ccb23e651b56234941e03d91c8af69d4c593a9
+  languageName: node
+  linkType: hard
+
 "@balena/dockerignore@npm:^1.0.2":
   version: 1.0.2
   resolution: "@balena/dockerignore@npm:1.0.2"
@@ -6900,6 +6909,7 @@ __metadata:
     "@types/react": "npm:18.2.38"
     "@types/react-dom": "npm:18.2.17"
     autoprefixer: "npm:10.4.16"
+    clsx: "npm:^2.0.0"
     date-fns: "npm:^2.30.0"
     eslint: "npm:8.54.0"
     eslint-config-next: "npm:14.0.3"
@@ -6922,6 +6932,7 @@ __metadata:
     react-dom: "npm:18.2.0"
     recharts: "npm:^2.10.1"
     remeda: "npm:^1.29.0"
+    tailwind-merge: "npm:^2.0.0"
     tailwindcss: "npm:3.3.5"
     typescript: "npm:5.3.2"
   languageName: unknown
@@ -6948,6 +6959,15 @@ __metadata:
   version: 6.2.0
   resolution: "tabbable@npm:6.2.0"
   checksum: 980fa73476026e99dcacfc0d6e000d41d42c8e670faf4682496d30c625495e412c4369694f2a15cf1e5252d22de3c396f2b62edbe8d60b5dadc40d09e3f2dde3
+  languageName: node
+  linkType: hard
+
+"tailwind-merge@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "tailwind-merge@npm:2.0.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.23.1"
+  checksum: d20d2551f4b2fd9eb68466accccf9b81baef0d8cfb9ecf89738a9abe72e023ec9fe9aad5b3b9da0a0b0ec340432069568b83dea9463ae670a20a9937fbb59bb0
   languageName: node
   linkType: hard
 

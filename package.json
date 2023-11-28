@@ -29,6 +29,7 @@
         "jsdom": "^22.1.0",
         "next": "14.0.3",
         "next-logger": "^3.0.2",
+        "next-usequerystate": "^1.13.0",
         "nextleton": "^0.6.1",
         "pg": "^8.11.3",
         "pino": "^8.16.2",

@@ -10,7 +10,7 @@ import { range } from 'remeda'
 import { cn } from 'utils/tw'
 import { formatQuarter, formatYear, setYearQuarter } from 'utils/date'
 
-import { useMonthYearQueryState } from '../../state-hooks/date'
+import { useQuarterQueryState } from '../../state-hooks/date'
 
 type Props = {
     fromQuarter: {
@@ -26,7 +26,7 @@ type Props = {
 function QuarterPicker({ fromQuarter, toQuarter }: Props): ReactElement {
     const wrapperRef = useRef<HTMLDivElement | null>(null)
     const [open, setOpen] = useState(false)
-    const [date, setDate] = useMonthYearQueryState('quarter')
+    const [date, setDate] = useQuarterQueryState('quarter')
 
     const startOfThisMonth = startOfMonth(new Date())
     const fromDate = setYearQuarter(startOfThisMonth, fromQuarter.year, fromQuarter.quarter)

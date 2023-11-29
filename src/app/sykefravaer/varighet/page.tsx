@@ -6,6 +6,7 @@ import PageCrumbs from '../../../components/decorator/page-crumbs'
 import { verifyUserLoggedIn } from '../../../auth/authentication'
 import MonthYearPicker from '../../../components/filters/MonthYearPicker'
 import QuarterPicker from '../../../components/filters/QuarterPicker'
+import SykefravaerVarighetFilter from '../../../components/filters/filter-sections/SykefravaerVarighetFilter'
 
 const pagePath = '/sykefravaer/varighet'
 
@@ -28,6 +29,7 @@ async function Page(): Promise<ReactElement> {
                     }}
                 />
             </div>
+            <SykefravaerVarighetFilter />
             TODO this route
         </PageLayout>
     )

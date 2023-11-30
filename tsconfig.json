@@ -22,7 +22,8 @@
         "paths": {
             "aksel-client": ["aksel.ts"],
             "aksel-server": ["aksel-server.ts"],
-            "utils": ["utils/*"]
+            "queries/*": ["db/queries/*"],
+            "utils/*": ["utils/*"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

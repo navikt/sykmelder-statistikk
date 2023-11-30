@@ -13,6 +13,9 @@ export const devDatabase: () => Promise<StartedPostgreSqlContainer> = lazyNextle
         .then((container) => {
             logger.info(`Started dev database on port ${container.getMappedPort(5432)}`)
 
+            // This will allow testcontainers intellij plugin to auto-update the port
+            logger.info(`Database: jdbc:postgresql://localhost:${container.getMappedPort(5432)}/statistikk`)
+
             return container
         })
 })

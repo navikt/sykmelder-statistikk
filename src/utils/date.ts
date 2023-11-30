@@ -1,4 +1,4 @@
-import { format, parse, setQuarter, setYear } from 'date-fns'
+import { format, parse, setMonth, setQuarter, setYear, subQuarters } from 'date-fns'
 import nb from 'date-fns/locale/nb'
 
 import { capitalizeFirstLetter } from './string'
@@ -25,7 +25,7 @@ export function serializeMonthYear(date: Date): string {
     return format(date, 'yyyy-MM')
 }
 
-export function parseMonthYear(date: string): Date {
+export function parseYearMonth(date: string): Date {
     return parse(date, 'yyyy-MM', new Date())
 }
 
@@ -39,4 +39,12 @@ export function parseYearQuarter(date: string): Date {
 
 export function setYearQuarter(date: Date, year: number, quarter: number): Date {
     return setQuarter(setYear(date, year), quarter)
+}
+
+export function setYearMonth(date: Date, year: number, month: number): Date {
+    return setMonth(setYear(date, year), month)
+}
+
+export function getPreviousQuarter(): Date {
+    return subQuarters(new Date(), 1)
 }

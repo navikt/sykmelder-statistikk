@@ -26,7 +26,8 @@ type Props = {
 function QuarterPicker({ fromQuarter, toQuarter }: Props): ReactElement {
     const wrapperRef = useRef<HTMLDivElement | null>(null)
     const [open, setOpen] = useState(false)
-    const [date, setDate] = useQuarterQueryState('quarter')
+    const [date, setDate, transitionLoading] = useQuarterQueryState('quarter')
+    const [selectedYear, setSelectedYear] = useState<Date>(date)
 
     const startOfThisMonth = startOfMonth(new Date())
     const fromDate = setYearQuarter(startOfThisMonth, fromQuarter.year, fromQuarter.quarter)
@@ -36,7 +37,13 @@ function QuarterPicker({ fromQuarter, toQuarter }: Props): ReactElement {
         <div>
             <Label htmlFor="month-year-picker">Periode</Label>
             <div ref={wrapperRef} className="navds-date__wrapper">
-                <Button id="month-year-picker" variant="secondary" size="small" onClick={() => setOpen((b) => !b)}>
+                <Button
+                    loading={transitionLoading}
+                    id="month-year-picker"
+                    variant="secondary"
+                    size="small"
+                    onClick={() => setOpen((b) => !b)}
+                >
                     {formatQuarter(date)}
                 </Button>
                 <Popover
@@ -55,14 +62,14 @@ function QuarterPicker({ fromQuarter, toQuarter }: Props): ReactElement {
                     <YearSelect
                         fromDate={fromDate}
                         toDate={toDate}
-                        year={date}
+                        year={selectedYear}
                         onYearChange={(year) => {
-                            setDate((y) => setYear(y, year.getFullYear()))
+                            setSelectedYear((y) => setYear(y, year.getFullYear()))
                         }}
                     />
                     <div className="grid grid-cols-2 gap-1">
                         {range(1, 5).map((q) => {
-                            const thisQuarter = setYearQuarter(startOfMonth(new Date()), date.getFullYear(), q)
+                            const thisQuarter = setYearQuarter(startOfMonth(new Date()), selectedYear.getFullYear(), q)
                             const beforeFrom = isBefore(thisQuarter, fromDate)
                             const afterTo = isAfter(thisQuarter, toDate)
                             const disabled = beforeFrom || afterTo
@@ -76,7 +83,7 @@ function QuarterPicker({ fromQuarter, toQuarter }: Props): ReactElement {
                                     })}
                                     disabled={disabled}
                                     onClick={() => {
-                                        setDate((d) => setQuarter(d, q))
+                                        setDate((d) => setQuarter(setYear(d, selectedYear.getFullYear()), q))
                                         setOpen(false)
                                     }}
                                 >

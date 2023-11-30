@@ -5,14 +5,13 @@ const fs = require('node:fs')
 const branch = process.argv[2] ?? 'main'
 
 async function getFiles() {
+    const githubUrl = `https://api.github.com/repos/navikt/sykmelder-statistikk-kafka/contents/src/main/resources/db?ref=${branch}`
     console.info(`Fetching changesets from sykmelder-statistikk-kafka on ${branch} branch...`)
+    console.info(githubUrl)
 
-    const result = await fetch(
-        `https://api.github.com/repos/navikt/sykmelder-statistikk-kafka/contents/src/${branch}/resources/db`,
-        {
-            method: 'GET',
-        },
-    ).then((it) => it.json())
+    const result = await fetch(githubUrl, {
+        method: 'GET',
+    }).then((it) => it.json())
 
     if (result.message === 'Not Found') {
         console.error('!!! Github says not found. Correct branch? !!!')

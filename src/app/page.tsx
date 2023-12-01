@@ -4,7 +4,6 @@ import { logger } from '@navikt/next-logger'
 import { verifyUserLoggedIn } from '../auth/authentication'
 import PageLayout from '../components/layout/page-layout'
 import PageCrumbs from '../components/decorator/page-crumbs'
-import { GraderteSykmeldingerEvolution } from '../components/graphs/graderte-sykmeldinger-evolution/graph'
 
 export default async function Home(): Promise<ReactElement> {
     await verifyUserLoggedIn('/')
@@ -14,7 +13,9 @@ export default async function Home(): Promise<ReactElement> {
     return (
         <PageLayout>
             <PageCrumbs extraCrumbs={[]} />
-            <GraderteSykmeldingerEvolution />
+            <div className="flex gap-4 my-4">
+                <div>TODO landing page :)))</div>
+            </div>
         </PageLayout>
     )
 }

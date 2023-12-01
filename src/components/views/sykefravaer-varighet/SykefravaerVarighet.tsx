@@ -1,8 +1,10 @@
 import React, { ReactElement, Suspense } from 'react'
 import { Heading } from '@navikt/ds-react'
 
-import { Skeleton } from 'aksel-server'
 import { getSykefravaerGjennomsnittligVarighet, SykefravaerVarighetFilter } from 'queries/sykefravaer'
+import { suspenseKey } from 'utils/string'
+
+import GraphSkeleton from '../../graphs/GraphSkeleton'
 
 import SykefravaerVarighetGraph from './SykefravaerVarighetGraph'
 
@@ -21,7 +23,7 @@ function SykefravaerVarighet({ filters }: Props): ReactElement {
             <Heading size="medium" level="3" spacing>
                 Utvikling i gjennomsnittlig varighet på sykefraværstilfeller (med valgt filtrering)
             </Heading>
-            <Suspense key={JSON.stringify(filters)} fallback={<Skeleton height={340} variant="rectangle" />}>
+            <Suspense key={suspenseKey(filters)} fallback={<GraphSkeleton />}>
                 <SykefravaerGjennomsnittligVarighet filters={filters} />
             </Suspense>
         </div>

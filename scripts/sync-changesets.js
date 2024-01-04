@@ -5,7 +5,7 @@ const fs = require('node:fs')
 const branch = process.argv[2] ?? 'main'
 
 async function getFiles() {
-    const githubUrl = `https://api.github.com/repos/navikt/sykmelder-statistikk-kafka/contents/src/main/resources/db?ref=${branch}`
+    const githubUrl = `https://api.github.com/repos/navikt/sykmelder-statistikk-kafka/contents/src/main/resources/db/migration?ref=${branch}`
     console.info(`Fetching changesets from sykmelder-statistikk-kafka on ${branch} branch...`)
     console.info(githubUrl)
 
@@ -22,6 +22,8 @@ async function getFiles() {
 }
 
 async function downloadFile(url) {
+    console.log(`Downloading file from... ${url}`)
+
     const result = await fetch(url, {
         method: 'GET',
     }).then((it) => it.text())

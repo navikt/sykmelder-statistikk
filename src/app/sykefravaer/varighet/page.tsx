@@ -10,6 +10,7 @@ import MonthYearPicker from '../../../components/filters/MonthYearPicker'
 import QuarterPicker from '../../../components/filters/QuarterPicker'
 import SykefravaerVarighet from '../../../components/views/sykefravaer-varighet/SykefravaerVarighet'
 import TextLink from '../../../components/TextLink'
+import SykefravaerVarighetFilter from '../../../components/filters/filter-sections/SykefravaerVarighetFilter'
 
 const pagePath = '/sykefravaer/varighet'
 
@@ -44,6 +45,9 @@ async function Page({ searchParams }: Props): Promise<ReactElement> {
                         quarter: 3,
                     }}
                 />
+            </div>
+            <div>
+                <SykefravaerVarighetFilter />
             </div>
             <SykefravaerVarighet filters={SykefravaerVarighetFilterSchema.parse(searchParams)} />
         </PageLayout>

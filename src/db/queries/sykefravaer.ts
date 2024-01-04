@@ -25,7 +25,7 @@ export async function getSykefravaerGjennomsnittligVarighet(
     const client = await dbClient()
     const result = await client.query(`
         SELECT *
-        FROM sfs_varighet_alle;
+        FROM sfs_sykmelding;
     `)
 
     if (isLocalOrDemo) {
@@ -37,8 +37,8 @@ export async function getSykefravaerGjennomsnittligVarighet(
     return R.pipe(
         result.rows,
         R.map((row) => ({
-            year: +row.aarmnd.slice(0, 4),
-            month: +row.aarmnd.slice(4, 6) - 1,
+            year: row.ar,
+            month: row.mnd,
             antall_sykmeldinger: row.antall_sykmeldinger,
             antall_dager: row.antall_dager,
             gradert: Boolean(row.gradert_flagg),

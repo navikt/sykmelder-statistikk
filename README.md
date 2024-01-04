@@ -26,7 +26,7 @@ I din `.bashrc` eller `.zshrc`, sett følgende miljøvariabel:
 Installer dependencies og start appen i dev-modus
 
 1. `yarn`
-2. `yarn start`
+2. `yarn dev`
 
 ## produksjonsbygg
 

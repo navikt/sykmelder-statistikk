@@ -20,9 +20,8 @@ export async function clearSchema(client: PoolClient): Promise<void> {
 
     logger.info('Clearing schema')
     await client.query(`
-        DROP TABLE IF EXISTS sfs_data_test;
-        DROP TABLE IF EXISTS sfs_varighet_alle;
-        DROP TABLE IF EXISTS test_table;
+        DROP TABLE IF EXISTS sykmelding_varighet;
+        DROP TABLE IF EXISTS sfs_sykmelding;
     `)
 }
 

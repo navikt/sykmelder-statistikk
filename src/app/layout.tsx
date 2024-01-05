@@ -10,6 +10,7 @@ import { bundledEnv, isLocalOrDemo } from '../env'
 import Resolvers from '../components/Resolvers'
 import AppHeader from '../components/header/app-header'
 import { Decorator } from '../decorator/decorator'
+import DevTools from '../components/devtools/DevTools'
 
 export const metadata: Metadata = {
     title: 'Statistikk for sykmelder',
@@ -25,6 +26,7 @@ export default async function RootLayout({ children }: { children: ReactNode }):
                 <main role="main" id="maincontent" tabIndex={-1}>
                     {children}
                 </main>
+                {bundledEnv.runtimeEnv === 'local' && <DevTools />}
             </Resolvers>
         </Decorator>
     )

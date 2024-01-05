@@ -5,7 +5,22 @@ import { cwd } from 'node:process'
 import { PoolClient } from 'pg'
 import { logger } from '@navikt/next-logger'
 
+import { bundledEnv } from '../../env'
+
 const changesetPaths = path.join(cwd(), 'src/db/dev/changesets')
+
+export async function clearSchema(client: PoolClient): Promise<void> {
+    if (bundledEnv.runtimeEnv !== 'local') {
+        throw new Error('Can only clear schema in local environment')
+    }
+
+    logger.info('Clearing schema')
+    await client.query(`
+        DROP TABLE IF EXISTS sfs_data_test;
+        DROP TABLE IF EXISTS sfs_varighet_alle;
+        DROP TABLE IF EXISTS test_table;
+    `)
+}
 
 export async function seedTestDatabase(client: PoolClient): Promise<void> {
     const files = fs.readdirSync(changesetPaths)

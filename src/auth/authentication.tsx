@@ -1,9 +1,8 @@
 import { headers } from 'next/headers'
 import { logger } from '@navikt/next-logger'
-import { validateIdportenToken } from '@navikt/next-auth-wonderwall'
+import { validateToken, getToken } from '@navikt/oasis'
 import { redirect } from 'next/navigation'
 
-import { raise } from '../utils/ts'
 import { bundledEnv, isLocalOrDemo } from '../env'
 
 export async function verifyUserLoggedIn(returnTo: string): Promise<void> {
@@ -16,28 +15,22 @@ export async function verifyUserLoggedIn(returnTo: string): Promise<void> {
     }
 
     const redirectPath = bundledEnv.publicPath ? `${bundledEnv.publicPath}${returnTo}` : returnTo
-    const bearerToken: string | null | undefined = requestHeaders.get('authorization')
-    if (!bearerToken) {
+    const token = getToken(requestHeaders)
+    if (!token) {
         logger.info('Found no token, redirecting to login')
         redirect(`/oauth2/login?redirect=${redirectPath}`)
     }
 
-    const validationResult = await validateIdportenToken(bearerToken)
-    if (validationResult !== 'valid') {
-        if (validationResult.errorType !== 'EXPIRED') {
+    const validationResult = await validateToken(token)
+    if (!validationResult.ok) {
+        if (validationResult.errorType !== 'token expired') {
             logger.error(
                 new Error(
-                    `Invalid JWT token found (cause: ${validationResult.errorType} ${validationResult.message}, redirecting to login.`,
+                    `Invalid JWT token found (cause: ${validationResult.errorType} ${validationResult.error.message}, redirecting to login.`,
                     { cause: validationResult.error },
                 ),
             )
         }
         redirect(`/oauth2/login?redirect=${redirectPath}`)
     }
-}
-
-export function getToken(headers: Headers): string {
-    if (isLocalOrDemo) return 'fake-token'
-
-    return headers.get('authorization')?.replace('Bearer ', '') ?? raise('Tried to get token, but header is missing')
 }

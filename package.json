@@ -24,7 +24,7 @@
         "@navikt/ds-tokens": "^5.11.2",
         "@navikt/nav-dekoratoren-moduler": "^2.1.4",
         "@navikt/next-logger": "^1.21.0",
-        "@navikt/oasis": "^3.0.0",
+        "@navikt/oasis": "^3.1.0",
         "clsx": "^2.0.0",
         "date-fns": "^2.30.0",
         "jsdom": "^22.1.0",
